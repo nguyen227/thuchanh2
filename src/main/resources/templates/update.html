@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Update product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body class="container" style="padding: 20px">
+    <h1>Product</h1>
+    <span id="error" style="color: red" th:text="error"></span>
+
+    <form action="" method="post" style="display: inline" th:object="${product}">
+
+        <div class="row" style="margin-bottom: 20px">
+            <p class="col-3">Product code : </p>
+            <input type="text" name="code" class="col-7" th:field="*{code}">
+        </div>
+        <div class="row" style="margin-bottom: 20px">
+            <p class="col-3">Product description : </p>
+            <input type="text" name="description" class="col-7" th:field="*{description}">
+        </div>
+        <div class="row" style="margin-bottom: 20px">
+            <p class="col-3">Product price : </p>
+            <input type="text" name="price" class="col-7" th:field="*{price}">
+        </div>
+
+        <button class="btn btn-info">Update product</button>
+    </form>
+    <a href="./displayProduct" class="btn btn-success"> View product</a>
+</body>
+
+</html>

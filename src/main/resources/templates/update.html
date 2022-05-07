@@ -15,22 +15,22 @@
     <h1>Product</h1>
     <span id="error" style="color: red" th:text="error"></span>
 
-    <form action="" method="post" style="display: inline" th:object="${product}">
+    <form th:action="@{/update}" method="POST" style="display: inline" th:object="${product}">
 
         <div class="row" style="margin-bottom: 20px">
             <p class="col-3">Product code : </p>
-            <input type="text" name="code" class="col-7" th:field="*{code}">
+            <input type="text" name="code" class="col-7" th:value="${product.code}">
         </div>
         <div class="row" style="margin-bottom: 20px">
             <p class="col-3">Product description : </p>
-            <input type="text" name="description" class="col-7" th:field="*{description}">
+            <input type="text" name="description" class="col-7" th:value="${product.description}">
         </div>
         <div class="row" style="margin-bottom: 20px">
             <p class="col-3">Product price : </p>
-            <input type="text" name="price" class="col-7" th:field="*{price}">
+            <input type="text" name="price" class="col-7" th:value="${product.price}">
         </div>
 
-        <button class="btn btn-info">Update product</button>
+        <button type="submit" class="btn btn-info">Update product</button>
     </form>
     <a href="./displayProduct" class="btn btn-success"> View product</a>
 </body>

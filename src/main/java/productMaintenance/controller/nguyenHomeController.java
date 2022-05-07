@@ -24,10 +24,7 @@ public class nguyenHomeController {
 	}
 	
 	@GetMapping("/add")
-	public String addProduct(Model model) {
-		model.addAttribute("product", new Product());
-		
-		
+	public String addProduct() {
 		return "add";
 	}
 	

@@ -24,8 +24,9 @@ public class sonUpdateController {
 
 	@GetMapping
 	public String updateProduct(@RequestParam(name="code") String code, Model model){
-		log.info(code);
-		model.addAttribute("product", productRepo.findByCode(code));
+		Product product = productRepo.findById(code).get();
+		log.info("GET" + product.toString());
+		model.addAttribute("product", product);
 		return "update";
 	}
 	
@@ -34,10 +35,8 @@ public class sonUpdateController {
 		if(errors.hasErrors()) {
 			return "update";
 		}
-		int length = (product.getCode().length()-1)/2;
-		product.setCode(product.getCode().substring(0, length));
-		
-		Product result = productRepo.save(product);
+		log.info("POST" + product.toString());
+		productRepo.save(product);
 
 		return "redirect:display";
 	}
